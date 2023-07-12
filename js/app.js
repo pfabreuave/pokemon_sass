@@ -1,15 +1,17 @@
 var pokem
 function proceso(){
     console.log("entro")
+    var btn = document.getElementById("valor");
+    console.log(btn.value)
+    pokem = btn.value
+    fetchData(pokem)
+    document.getElementById("formulario").reset();
+
 }
+
+
 document.addEventListener('DOMContentLoaded', function(event) {
-     var btn = addEventListener("click", function(e) {
-            e.preventDefault();
-            var btn = document.querySelector("#valor");
-            pokem = btn.value
-            fetchData(pokem)
-            document.getElementById("formulario").reset();
-     })
+    
         const pokemon = {
             id:'',
             img: 
@@ -27,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
         }
         dibujaCard(pokemon)
 })
+
+
 const fetchData = async (id) => {
     try 
         {   
@@ -46,7 +50,6 @@ const fetchData = async (id) => {
                 fuerza: 'Hp',
                 experto: 'Exp'
             }
-            console.log(pokemon)
             dibujaCard(pokemon)
         
         } catch (error) {
@@ -54,7 +57,7 @@ const fetchData = async (id) => {
         }
 }
 
-const dibujaCard = (pokemon) => {
+ const dibujaCard = (pokemon) => {
     const flex = document.querySelector('.flex')
     const template = document.querySelector('#template-card').content
     const clone = template.cloneNode(true)
