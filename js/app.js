@@ -48,7 +48,7 @@ const fetchData = async (id) => {
             dibujaCard(pokemon)
         
         } catch (error) {
-            alert(" Não tenho, tente outro")
+           // alert(" Não tenho, tente outro")
         }
 }
 
