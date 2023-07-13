@@ -6,9 +6,9 @@ function proceso(){
     atributo id con el valor "pok".
     La función getElementById() es un método del objeto document que se utiliza para obtener 
     una referencia a un elemento del DOM (Document Object Model) en base a su ID único.
-    Cuando se encuentra el elemento con el ID "valor", la función getElementById() devuelve una 
+    Cuando se encuentra el elemento con el ID "pok", la función getElementById() devuelve una 
     referencia a ese elemento.
-    Finalmente, la referencia al elemento con el ID "valor" se asigna a la variable btn.
+    Finalmente, la referencia al elemento con el ID "pok" se asigna a la variable btn.
     A partir de este punto, puedes utilizar la variable btn para realizar acciones en el elemento 
     HTML que representa, como agregar event listeners, modificar su contenido, cambiar su estilo, 
     entre otras operaciones.
