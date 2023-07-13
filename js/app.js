@@ -1,14 +1,10 @@
 var pokem
 function proceso(){
-    console.log("entro")
     var btn = document.getElementById("valor");
-    console.log(btn.value)
     pokem = btn.value
     fetchData(pokem)
     document.getElementById("formulario").reset();
-
 }
-
 
 document.addEventListener('DOMContentLoaded', function(event) {
     
@@ -30,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
         dibujaCard(pokemon)
 })
 
-
 const fetchData = async (id) => {
     try 
         {   
@@ -45,31 +40,37 @@ const fetchData = async (id) => {
                 ataque: data.stats[1].base_stat,
                 especial: data.stats[3].base_stat,
                 defensa: data.stats[2].base_stat,
-                numero: '#',
+                numero: 'Nº',
                 peso: 'K',
                 fuerza: 'Hp',
-                experto: 'Exp'
+                experto: ' Exp'
             }
             dibujaCard(pokemon)
         
         } catch (error) {
-            //alert(" Não tenho, tente outro")
+            alert(" Não tenho, tente outro")
         }
 }
 
- const dibujaCard = (pokemon) => {
-    const flex = document.querySelector('.flex')
-    const template = document.querySelector('#template-card').content
-    const clone = template.cloneNode(true)
-    const fragment = document.createDocumentFragment()
-    clone.querySelector('.card-body-img').setAttribute('src', pokemon.img)
-    clone.querySelector('.card-body-title').innerHTML = `${pokemon.numero} ${pokemon.id} ${pokemon.nombre} <span>${pokemon.hp} ${pokemon.fuerza}</span>`
-    clone.querySelector('.card-body-text').textContent = pokemon.experiencia + pokemon.experto
-    clone.querySelectorAll('.card-footer-social h3')[0].textContent = pokemon.ataque + pokemon.peso
-    clone.querySelectorAll('.card-footer-social h3')[1].textContent = pokemon.especial + pokemon.peso
-    clone.querySelectorAll('.card-footer-social h3')[2].textContent = pokemon.defensa + pokemon.peso
-    fragment.appendChild(clone)
-    flex.appendChild(fragment)
-    document.getElementById("formulario").reset();
- }
+const dibujaCard = (pokemon) => {
+    const flex = document.querySelector('.flex');
+    const template = document.querySelector('#template-card').content;
+    const clone = template.cloneNode(true);
+    const fragment = document.createDocumentFragment();
+    clone.querySelector('.card-body-img').setAttribute('src', pokemon.img);
+    clone.querySelector('.card-body-title').innerHTML = `${pokemon.numero} ${pokemon.id} ${pokemon.nombre} <span>${pokemon.hp} ${pokemon.fuerza}</span>`;
+    clone.querySelector('.card-body-text').textContent = pokemon.experiencia + pokemon.experto;
+    clone.querySelectorAll('.card-footer-social h3')[0].textContent = pokemon.ataque + pokemon.peso;
+    clone.querySelectorAll('.card-footer-social h3')[1].textContent = pokemon.especial + pokemon.peso;
+    clone.querySelectorAll('.card-footer-social h3')[2].textContent = pokemon.defensa + pokemon.peso;
+    
+    // Remueve las tarjetas existentes en el contenedor
+    flex.innerHTML = '';
+  
+    // Agrega la tarjeta clonada al fragmento
+    fragment.appendChild(clone);
+  
+    // Agrega el fragmento al contenedor
+    flex.appendChild(fragment);
+  }
  
