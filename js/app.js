@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
             'https://i.pinimg.com/originals/7d/5c/18/7d5c18be5689eebd1896363ff7117fe0.jpg',
             nombre: 'Escolha seu pokémon',
             hp: '',
+            tipo: 'conheça seus poderes',
             experiencia: '',
             ataque: '00',
             especial: '00',
@@ -53,11 +54,13 @@ const fetchData = async (id) => {
         {   
             const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
             const data = await res.json()
+            const elementTypes = data.types.map(typeInfo => typeInfo.type.name)
             const pokemon = {
                 id: data.id,
                 img: data.sprites.other.dream_world.front_default,
                 nombre: data.name,
                 hp: data.stats[0].base_stat,
+                tipo: elementTypes.join(" | "),
                 experiencia: data.base_experience,
                 ataque: data.stats[1].base_stat,
                 especial: data.stats[3].base_stat,
@@ -124,6 +127,7 @@ const dibujaCard = (pokemon) =>
         clone.querySelector('.card-body-img').setAttribute('src', pokemon.img);
         clone.querySelector('.card-body-title').innerHTML = `${pokemon.numero} ${pokemon.id} ${pokemon.nombre} <span>${pokemon.hp} ${pokemon.fuerza}</span>`;
         clone.querySelector('.card-body-text').textContent = pokemon.experiencia + pokemon.experto;
+        clone.querySelector('.card-body-type').textContent = pokemon.tipo;
         clone.querySelectorAll('.card-footer-social h3')[0].textContent = pokemon.ataque + pokemon.peso;
         clone.querySelectorAll('.card-footer-social h3')[1].textContent = pokemon.especial + pokemon.peso;
         clone.querySelectorAll('.card-footer-social h3')[2].textContent = pokemon.defensa + pokemon.peso;

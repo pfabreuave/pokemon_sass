@@ -73,6 +73,14 @@
     margin-top: 0;
     margin-bottom: 2rem;
   }
+  
+  .card-body-type {
+    color: var(--dark-blu);
+    margin-top: 2rem;
+    font-size: 1.8rem;
+    text-transform: capitalize;
+  }
+  
   .card-footer {
     display: flex;
     justify-content: space-around;
