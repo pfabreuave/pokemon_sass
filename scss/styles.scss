@@ -119,6 +119,40 @@
     width: 180px;
     border-radius: 50%;
   }
+
+  
+  .salida {
+    position: relative;
+    text-align: center;
+  }
+
+  .imasal {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .text-overlay {
+    position: absolute;
+    top: 100%;
+    left: 15%; 
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    animation: titleAnimation 1s ease-in-out infinite;
+  }
+
+  @keyframes titleAnimation {
+    0% {
+      opacity: .2;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: .2;
+    }
+  }
   
   .input-container {
     position: relative;
