@@ -67,7 +67,7 @@ const fetchData = async (id) => {
                 defensa: data.stats[2].base_stat,
                 numero: 'Nº',
                 peso: 'K',
-                fuerza: 'Hp',
+                fuerza: ' Hp    ',
                 experto: ' Exp'
             }
             dibujaCard(pokemon)
@@ -125,8 +125,8 @@ const dibujaCard = (pokemon) =>
             elementos de la tarjeta de Pokémon.
         */
         clone.querySelector('.card-body-img').setAttribute('src', pokemon.img);
-        clone.querySelector('.card-body-title').innerHTML = `${pokemon.numero} ${pokemon.id} ${pokemon.nombre} <span>${pokemon.hp} ${pokemon.fuerza}</span>`;
-        clone.querySelector('.card-body-text').textContent = pokemon.experiencia + pokemon.experto;
+        clone.querySelector('.card-body-title').innerHTML = `${pokemon.numero} ${pokemon.id} ${pokemon.nombre}`;
+        clone.querySelector('.card-body-text').textContent = pokemon.hp + pokemon.fuerza + pokemon.experiencia + pokemon.experto;
         clone.querySelector('.card-body-type').textContent = pokemon.tipo;
         clone.querySelectorAll('.card-footer-social h3')[0].textContent = pokemon.ataque + pokemon.peso;
         clone.querySelectorAll('.card-footer-social h3')[1].textContent = pokemon.especial + pokemon.peso;
