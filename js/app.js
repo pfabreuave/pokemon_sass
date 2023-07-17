@@ -32,8 +32,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
     
         const pokemon = {
             id:'',
-            img: 
-            'https://i.pinimg.com/originals/7d/5c/18/7d5c18be5689eebd1896363ff7117fe0.jpg',
+            img: "../images/pokeIco.png",
+            // 'https://i.pinimg.com/originals/7d/5c/18/7d5c18be5689eebd1896363ff7117fe0.jpg',
+            // "../images/pokeIco.png",
             nombre: 'Escolha seu pokémon',
             hp: '',
             tipo: 'conheça seus poderes',
