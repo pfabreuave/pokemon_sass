@@ -20,6 +20,8 @@ function proceso(){
     document.getElementById("formulario").reset();
 }
 
+
+
 /*
 
     document.addEventListener('DOMContentLoaded', function(event) { ... }) 
@@ -74,7 +76,7 @@ const fetchData = async (id) => {
             dibujaCard(pokemon)
         
         } catch (error) {
-           // alert(" Não tenho, tente outro")
+            validarNumero(pokem)
         }
 }
 /*
@@ -142,5 +144,24 @@ const dibujaCard = (pokemon) =>
         // Agrega el fragmento al contenedor
         flex.appendChild(fragment);
 
+  }
+
+/*
+
+    se verifica si el valor es un número entero mayor a 0 utilizando la función Number.isInteger() 
+    y comparando el valor con la condición parseInt(numero) > 0.
+*/
+
+
+function validarNumero(pokem) {
+    
+    // Verificar si el valor ingresado es un número entero mayor a 0
+    if (Number.isInteger(Number(pokem)) && parseInt(pokem) > 0) {
+      // El número es válido
+      alert("Pokémon com ID " + pokem + " não existe tente outro");
+    } else {
+      // El número no es válido
+      //alert("Por favor, ingresa un número entero mayor a 0");
+    }
   }
  
